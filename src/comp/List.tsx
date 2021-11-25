@@ -70,7 +70,7 @@ const List = () => {
                   <WorkIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary={spending.amount} secondary="Jan 7, 2014" />
+              <ListItemText primary={spending.amount} secondary={spending.created_at} />
             </ListItem>
           ))}
       </ListMui>
