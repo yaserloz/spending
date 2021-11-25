@@ -54,9 +54,7 @@ const List = () => {
         <TextField
           onKeyPress={addSpending}
           onChange={textFieldChanged}
-          fullWidth
           label="input your spending"
-          id="fullWidth"
           value={amount ? amount : ""}
         />
       </Box>
