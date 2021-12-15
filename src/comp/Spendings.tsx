@@ -12,14 +12,24 @@ import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-const DailySpendingList = () => {
+const Spendings = () => {
   const [spendings, setSpendings] = useState<any[]>([]);
   const [amount, setAmount] = useState(null);
 
   useEffect(() => {
-    api.dailySpending().then((reponse) => setSpendings(reponse.data));
+    api.spendings().then((reponse) => setSpendings(reponse.data));
   }, []);
 
+  const addSpending: any = (event: any) => {
+    if (event && event.target) {
+      if (event.key === "Enter") {
+        api.addSpending({ amount }).then((response) => {
+          api.spendings().then((reponse) => setSpendings(reponse.data));
+          setAmount(null);
+        });
+      }
+    }
+  };
 
   const textFieldChanged: any = (event: any) => {
     const amount: any = event.target.value;
@@ -31,8 +41,23 @@ const DailySpendingList = () => {
     setAmount(amount);
   };
 
+  console.log(amount);
   return (
     <>
+      <Box
+        sx={{
+          width: 500,
+          maxWidth: "100%",
+          margin: "2em",
+        }}
+      >
+        <TextField
+          onKeyPress={addSpending}
+          onChange={textFieldChanged}
+          label="input your spending"
+          value={amount ? amount : ""}
+        />
+      </Box>
       <ListMui
         sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
       >
@@ -45,7 +70,7 @@ const DailySpendingList = () => {
                   <WorkIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary={spending.amount} secondary={spending.date_sp} />
+              <ListItemText primary={spending.amount} secondary={spending.created_at} />
             </ListItem>
           ))}
       </ListMui>
@@ -53,4 +78,4 @@ const DailySpendingList = () => {
   );
 };
 
-export default DailySpendingList;
+export default Spendings;

@@ -80,16 +80,19 @@
 
 // export default List;
 
-
 import React, { useState, useEffect } from "react";
-import SwipeableViews from 'react-swipeable-views';
-import { useTheme } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import DailySpendingList from "./DailySpendingList"
+import SwipeableViews from "react-swipeable-views";
+import { useTheme } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Spendings from "./Spendings";
+import MonthlySpendingList from "./MonthlySpendingList";
+import DailySpendingList from "./DailySpendingList";
+import YearlySpendingList from "./YearlySpendingList";
+
 interface TabPanelProps {
   children?: React.ReactNode;
   dir?: string;
@@ -120,7 +123,7 @@ function TabPanel(props: TabPanelProps) {
 function a11yProps(index: number) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 
@@ -137,7 +140,7 @@ export default function FullWidthTabs() {
   };
 
   return (
-    <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
+    <Box sx={{ bgcolor: "background.paper", width: 500 }}>
       <AppBar position="static">
         <Tabs
           value={value}
@@ -151,28 +154,26 @@ export default function FullWidthTabs() {
           <Tab label="DAILY" {...a11yProps(1)} />
           <Tab label="MONTHLY" {...a11yProps(2)} />
           <Tab label="YEARLY" {...a11yProps(3)} />
-
         </Tabs>
       </AppBar>
       <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <DailySpendingList />
+          <Spendings />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          DAILY SPENDING
+          <DailySpendingList />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          MONTHLY SPENDING
+          <MonthlySpendingList />{" "}
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
-          YEARLY SPENDING
+          <YearlySpendingList />
         </TabPanel>
       </SwipeableViews>
     </Box>
   );
 }
-

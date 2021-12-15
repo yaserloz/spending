@@ -12,12 +12,12 @@ import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-const DailySpendingList = () => {
+const MonthlySpendingList = () => {
   const [spendings, setSpendings] = useState<any[]>([]);
   const [amount, setAmount] = useState(null);
 
   useEffect(() => {
-    api.dailySpending().then((reponse) => setSpendings(reponse.data));
+    api.monthlySpending().then((reponse) => setSpendings(reponse.data));
   }, []);
 
 
@@ -53,4 +53,4 @@ const DailySpendingList = () => {
   );
 };
 
-export default DailySpendingList;
+export default MonthlySpendingList;
