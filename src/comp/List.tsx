@@ -148,9 +148,9 @@ export default function FullWidthTabs() {
           aria-label="full width tabs example"
         >
           <Tab label="SPENDING" {...a11yProps(0)} />
-          <Tab label="DAILY SPENDING" {...a11yProps(1)} />
-          <Tab label="MONTHLY SPENDING" {...a11yProps(2)} />
-          <Tab label="YEARLY SPENDING" {...a11yProps(3)} />
+          <Tab label="DAILY" {...a11yProps(1)} />
+          <Tab label="MONTHLY" {...a11yProps(2)} />
+          <Tab label="YEARLY" {...a11yProps(3)} />
 
         </Tabs>
       </AppBar>
