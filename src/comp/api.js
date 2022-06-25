@@ -8,7 +8,7 @@ const api = {
 
 
 
-    addSpending:(spending) => axios.put(env()+"spand/spendings", spending)
+    addSpending:(spending) => axios.put(env()+"spend/spendings", spending)
 }
 
 export default api;
