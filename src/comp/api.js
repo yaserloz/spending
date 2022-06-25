@@ -1,10 +1,10 @@
 import axios from 'axios'
 import env from '../env';
 const api = {
-    spendings:() => axios.get(env()+"spand/spendings"),
-    monthlySpending:() => axios.get(env()+"spand/monthly"),
-    dailySpending:() => axios.get(env()+"spand/daily"),
-    yearlySpending:() => axios.get(env()+"spand/yearly"),
+    spendings:() => axios.get(env()+"spend/spendings"),
+    monthlySpending:() => axios.get(env()+"spend/monthly"),
+    dailySpending:() => axios.get(env()+"spend/daily"),
+    yearlySpending:() => axios.get(env()+"spend/yearly"),
 
 
 
