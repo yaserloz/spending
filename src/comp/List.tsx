@@ -92,6 +92,7 @@ import Spendings from "./Spendings";
 import MonthlySpendingList from "./MonthlySpendingList";
 import DailySpendingList from "./DailySpendingList";
 import YearlySpendingList from "./YearlySpendingList";
+import WeeklylySpendingList from "./WeeklylySpendingList";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -152,8 +153,10 @@ export default function FullWidthTabs() {
         >
           <Tab label="SPENDING" {...a11yProps(0)} />
           <Tab label="DAILY" {...a11yProps(1)} />
-          <Tab label="MONTHLY" {...a11yProps(2)} />
-          <Tab label="YEARLY" {...a11yProps(3)} />
+          <Tab label="WEEK" {...a11yProps(2)} />
+
+          <Tab label="MONTHLY" {...a11yProps(3)} />
+          <Tab label="YEARLY" {...a11yProps(4)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -168,9 +171,12 @@ export default function FullWidthTabs() {
           <DailySpendingList />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <MonthlySpendingList />{" "}
+          <WeeklylySpendingList />
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
+          <MonthlySpendingList />{" "}
+        </TabPanel>
+        <TabPanel value={value} index={4  } dir={theme.direction}>
           <YearlySpendingList />
         </TabPanel>
       </SwipeableViews>

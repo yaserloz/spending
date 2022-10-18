@@ -4,6 +4,7 @@ const api = {
     spendings:() => axios.get(env()+"spend/spendings"),
     monthlySpending:() => axios.get(env()+"spend/monthly"),
     dailySpending:() => axios.get(env()+"spend/daily"),
+    weeklySpending:() => axios.get(env()+"spend/weekly"),
     yearlySpending:() => axios.get(env()+"spend/yearly"),
 
 
