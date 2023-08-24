@@ -1,3 +1,6 @@
+import axios from 'axios'
+import env from '../env';
+
 
 const api = {
     spendings:() => axios.get(env()+"spend/spendings"),
