@@ -12,7 +12,10 @@ axios.interceptors.request.use(
       return Promise.reject(error);
     }
   );
-  
+
+  axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+  axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
+
 const api = {
     spendings:() => axios.get(env()+"spend/spendings"),
     monthlySpending:() => axios.get(env()+"spend/monthly"),
